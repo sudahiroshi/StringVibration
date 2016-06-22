@@ -1,0 +1,16 @@
+body {
+  background-color: #afafaf;
+}
+.myCanvas {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  top: 0;
+}
+#area1 {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  background-color: #ffffc0;
+}
