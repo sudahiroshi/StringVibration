@@ -1,6 +1,7 @@
 class StringVibration {
 
   constructor( elm1, elm2 ) {
+    this.clear = true;
     this.elm1 = elm1;
     this.elm2 = elm2;
     const N = 40;
@@ -9,8 +10,8 @@ class StringVibration {
     this.vc1 = new VCanvas( elm1 );
     this.vc2 = new VCanvas( elm2 );
 
-    this.vc1.scale( -5, M, N+10, -2.0*M );
-    this.vc2.scale( -5, M, N+10, -2.0*M );
+    this.vc1.scale( -2, M, N+4, -2.0*M );
+    this.vc2.scale( -2, M, N+4, -2.0*M );
 
     this.vc2.forecolor( 0, 0, 0 );
     this.vc2.beginPath();
@@ -46,7 +47,8 @@ class StringVibration {
     var nl = new nylon();
 
     timer1.timer = () => {
-      //this.vc1.cls();
+      if( this.clear) this.vc1.cls();
+      this.vc1.forecolor( 10, 80, 10 );
       this.vc1.beginPath();
 			this.vc1.lineStart( 0, u[0]*M );
 			for( var i=1; i<=N; i++ )
@@ -65,7 +67,6 @@ class StringVibration {
     nl.on( "start", ( key, params ) => {
       timer1.enable();
     });
-
     nl.on( "stop", ( key, params ) => {
       timer1.disable();
     });
@@ -73,6 +74,12 @@ class StringVibration {
       console.log( params );
       delta( params["top"] );
       timer1.timer();
+    });
+    nl.on( "moment", ( key, params ) => {
+      this.clear = true;
+    });
+    nl.on( "overlap", ( key, params ) => {
+      this.clear = false
     });
   }
 }
@@ -85,15 +92,34 @@ var guisetup = () => {
   document.getElementById("stop").addEventListener( "click", () => {
     nl.emit( "stop", null );
   });
+  document.getElementById("b01").addEventListener( "click", () => {
+    nl.emit( "stop", null );
+    nl.emit( "delta", { "top":0.1 } );
+  });
+  document.getElementById("b02").addEventListener( "click", () => {
+    nl.emit( "stop", null );
+    nl.emit( "delta", { "top":0.2 } );
+  });
   document.getElementById("b03").addEventListener( "click", () => {
     nl.emit( "stop", null );
     nl.emit( "delta", { "top":0.3 } );
+  });
+  document.getElementById("b04").addEventListener( "click", () => {
+    nl.emit( "stop", null );
+    nl.emit( "delta", { "top":0.4 } );
   });
   document.getElementById("b05").addEventListener( "click", () => {
     nl.emit( "stop", null );
     nl.emit( "delta", { "top":0.5 } );
   });
+  document.getElementById("moment").addEventListener( "click", () => {
+    nl.emit( "moment", null );
+  });
+  document.getElementById("overlap").addEventListener( "click", () => {
+    nl.emit( "overlap", null );
+  });
 }
+
 
 
 window.addEventListener("load", function(e) {

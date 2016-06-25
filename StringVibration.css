@@ -1,5 +1,14 @@
 body {
-  background-color: #afafaf;
+  background-color: #fffffc;
+}
+#panel {
+  float: left;
+  margin-right: auto;
+  width: 180px;
+}
+#main {
+  margin-left: auto;
+  margin-right: auto;
 }
 .myCanvas {
   position: absolute;
@@ -9,8 +18,33 @@ body {
   top: 0;
 }
 #area1 {
+  float: left;
   position: relative;
-  width: 400px;
+  width: 460px;
   height: 200px;
   background-color: #ffffc0;
+}
+#area2 {
+  float: left;
+  position: relative;
+  width: 460px;
+  height: 120px;
+  background-color: #ffffc0;
+  bottom: 5px;
+}
+#header {
+  width: 640px;
+}
+.normal {
+  width: 80px;
+  height: 60px;
+  font-size: 16pt;
+}
+.clear {
+  font-size: 14pt;
+  width: 160px;
+  height: 30px;
+}
+#initial {
+  background-color: #b0f0b0;
 }

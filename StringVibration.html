@@ -8,17 +8,40 @@
     <script src="./js/vcanvas.js"></script>
     <script src="./js/vbtimer.js"></script>
     <script src="./js/StringVibration.js"></script>
-
+    <script src="./js/initial.js"></script>
   </head>
   <body>
-  <div id="area1">
-    <canvas class="myCanvas" id="graph1" width="400" height="200"></canvas>
-    <canvas class="myCanvas" id="graph2" width="400" height="200"></canvas>
-  </div>
-  <button type="button" id="start">start</button>
-  <button type="button" id="stop">stop</button>
-  <button type="button" id="b03">0.3</button>
-  <button type="button" id="b05">0.5</button>
-  <p id="innerdot"></p><p id="alldot"></p><p id="pi"></p>
+    <div id="contents">
+      <div><img src="./images/StringVibration.png" id="header" alt="Title and Equation"></div>
+      <div id="panel">
+        <div>
+          <button type="button" id="start" class="normal">start</button>
+          <button type="button" id="stop" class="normal">stop</button>
+        </div>
+        <div>
+          <p>初期状態</p>
+          <button type="button" id="b01" class="size">0.1</button>
+          <button type="button" id="b02" class="size">0.2</button>
+          <button type="button" id="b03" class="size">0.3</button>
+          <button type="button" id="b04" class="size">0.4</button>
+          <button type="button" id="b05" class="size">0.5</button>
+        </div>
+        <div>
+          <p>描画</p>
+          <button id="moment" class="clear">moment</button>
+          <button id="overlap" class="clear">overlap</button>
+        </div>
+      </div>
+      <div id="main">
+        <div id="area2">
+          <canvas class="myCanvas" id="initial" width="460" height="120"></canvas>
+        </div>
+        <div id="area1">
+          <canvas class="myCanvas" id="graph1" width="460" height="200"></canvas>
+          <canvas class="myCanvas" id="graph2" width="460" height="200"></canvas>
+        </div>
+      </div>
+      <p id="innerdot"></p><p id="alldot"></p><p id="pi"></p>
+    </div>
   </body>
 </html>
